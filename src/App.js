@@ -2,18 +2,12 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const Child = () => {
-  console.log('render')
-  return (
-    <div>child</div>
-  )
-}
+import Child from './Child'
 
-function test(target, prop, descriptor) {
-  console.log(target)
-}
 
-@test()
+import pureRender from './decorator'
+
+@pureRender
 class App extends Component {
   constructor(props) {
     super(props)
@@ -35,7 +29,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Child/>
+        <Child val={this.state.qwe}/>
       </div>
     );
   }
